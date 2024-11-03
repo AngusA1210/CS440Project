@@ -2,16 +2,16 @@
 
 // Requirements
 const express = require('express');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./database');
 const app = express();
-app.use(cors());
 app.use(bodyParser.json());
 
-// Loads files from Client folder
-app.use(express.static(path.join(__dirname, '../client')));
+// Get html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index', 'index.html'));
+});
 
 // API routes
 app.get('/api/items', (req, res) => {
@@ -29,11 +29,7 @@ app.post('/api/items', (req, res) => {
     });
 });
 
-// Load index.html
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/index.html'));
-});
-
+// Start server
 app.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
 });
