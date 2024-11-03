@@ -1,9 +1,9 @@
 {
   "name": "minimal-sales-list",
   "version": "1.0.0",
-  "main": "server/app.js",
+  "main": "Layered/app.js",
   "scripts": {
-    "start": "node server/app.js"
+    "start": "node Layered/app.js"
   },
   "dependencies": {
     "express": "^4.18.2",
